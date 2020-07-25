@@ -6,6 +6,7 @@ defmodule BunsanForm.Umbrella.MixProject do
       apps_path: "apps",
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
+      releases: releases(),
       deps: deps(),
       aliases: aliases()
     ]
@@ -25,6 +26,19 @@ defmodule BunsanForm.Umbrella.MixProject do
   # and cannot be accessed from applications inside the apps/ folder.
   defp deps do
     []
+  end
+
+  defp releases do
+    [
+      bunsan_web: [
+        applications: [
+          bunsan_form_web: :permanent,
+          runtime_tools: :permanent
+        ],
+        cookie: "Y2hvY29sYXRl",
+        steps: [:assemble, :tar]
+      ]
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
