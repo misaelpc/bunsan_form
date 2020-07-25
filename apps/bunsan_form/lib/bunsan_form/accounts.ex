@@ -38,6 +38,44 @@ defmodule BunsanForm.Accounts do
   def get_user!(id), do: Repo.get!(User, id)
 
   @doc """
+  Find users with money in their account.
+
+  ## Examples
+
+      iex> users_with_money()
+      %User{}
+
+      iex> users_with_money
+      []
+
+  """
+  def users_with_money() do
+    query = from u in "users",
+          where: u.usd  > 0,
+          select: u.name
+    Repo.all(query)
+  end
+
+  @doc """
+  Find user by name.
+
+  ## Examples
+
+      iex> find_by_name("Hector")
+      %User{}
+
+      iex> get_user!("Jose")
+      []
+
+  """
+  def find_by_name(name) do
+    query = from u in "users",
+          where: u.name  == ^name,
+          select: u.name
+    Repo.all(query)
+  end
+
+  @doc """
   Creates a user.
 
   ## Examples
