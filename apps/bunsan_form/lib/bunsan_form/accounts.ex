@@ -7,6 +7,23 @@ defmodule BunsanForm.Accounts do
   alias BunsanForm.Repo
 
   alias BunsanForm.Accounts.User
+  
+  def user_has_usd(query) do
+    from u in query, where: u.eth > 0
+  end
+
+  def user_has_btc(query) do
+    from u in query, where: u.btc > 0
+  end
+
+  def users_query do
+    from u in "users", select: u.name
+  end
+
+  def users_with_crypto do
+    query = users_query() |> user_has_usd() |> user_has_btc()
+    Repo.all(query)
+  end 
 
   @doc """
   Returns the list of users.
