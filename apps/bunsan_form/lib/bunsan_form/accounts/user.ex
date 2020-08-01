@@ -4,10 +4,10 @@ defmodule BunsanForm.Accounts.User do
 
   schema "users" do
     field :btc, :decimal
-    field :eth, :decimal
     field :name, :string
     field :pin, :string
     field :usd, :decimal
+    field :email, :string
 
     timestamps()
   end
@@ -15,7 +15,7 @@ defmodule BunsanForm.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :pin, :usd, :eth, :btc])
-    |> validate_required([:name, :pin, :usd, :eth, :btc])
+    |> cast(attrs, [:name, :pin, :usd, :email, :btc])
+    |> validate_required([:name, :pin, :usd, :email, :btc])
   end
 end

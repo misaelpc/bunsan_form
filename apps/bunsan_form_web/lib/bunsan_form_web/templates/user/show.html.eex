@@ -18,8 +18,8 @@
   </li>
 
   <li>
-    <strong>Eth:</strong>
-    <%= @user.eth %>
+    <strong>Email:</strong>
+    <%= @user.email %>
   </li>
 
   <li>

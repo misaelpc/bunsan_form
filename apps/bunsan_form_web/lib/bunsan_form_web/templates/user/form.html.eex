@@ -17,9 +17,9 @@
   <%= number_input f, :usd, step: "any" %>
   <%= error_tag f, :usd %>
 
-  <%= label f, :eth %>
-  <%= number_input f, :eth, step: "any" %>
-  <%= error_tag f, :eth %>
+  <%= label f, :email %>
+  <%= text_input f, :email %>
+  <%= error_tag f, :email %>
 
   <%= label f, :btc %>
   <%= number_input f, :btc, step: "any" %>

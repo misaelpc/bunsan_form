@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Pin</th>
       <th>Usd</th>
-      <th>Eth</th>
+      <th>Email</th>
       <th>Btc</th>
 
       <th></th>
@@ -18,7 +18,7 @@
       <td><%= user.name %></td>
       <td><%= user.pin %></td>
       <td><%= user.usd %></td>
-      <td><%= user.eth %></td>
+      <td><%= user.email %></td>
       <td><%= user.btc %></td>
 
       <td>
